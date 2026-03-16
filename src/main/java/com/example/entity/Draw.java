@@ -1,6 +1,9 @@
 package com.example.entity;
 
+import java.time.OffsetDateTime;
 import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,29 +15,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "products")
-public class Info {
+@Entity
+@Table(name = "draws")
+public class Draw {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(nullable = false)
-  private String name;
+  @CreationTimestamp
+  @Column(columnDefinition = "timestamptz", nullable = false, updatable = false)
+  private OffsetDateTime createdAt;
 
-  @Column(nullable = false)
-  private String lastName;
-
-  private Boolean accept = false;
-
-  @Column(nullable = false)
-  private String phone;
-
-  @Column(nullable = false)
-  private String activity;
-
-  private List<String> reasons;
+  private List<Long> winners;
 }

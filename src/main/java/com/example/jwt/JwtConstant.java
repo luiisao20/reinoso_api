@@ -1,7 +1,23 @@
 package com.example.jwt;
 
-public class JwtConstant {
-  public static final String SECRET_KEY = "4Umgdmwp3VQvCFiB74LVCFKuslwcK4deqaqUYYRR0I5LvcxBaou2TTBkJS84JeKoec50ehizYX";
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
+public class JwtConstant {
   public static final String JWT_HEADER = "Authorization";
+
+  public static String SECRET_KEY_STATIC;
+
+  @Value("${jwt.secret}")
+  private String secretKey;
+
+  @jakarta.annotation.PostConstruct
+  public void init() {
+    SECRET_KEY_STATIC = secretKey;
+  }
+
+  public static String getSecretKey() {
+    return SECRET_KEY_STATIC;
+  }
 }

@@ -33,12 +33,14 @@ public class SecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .httpBasic(Customizer.withDefaults())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/auth/login", "/products/**", "/products/save")
+            .requestMatchers("/auth/login", "/products/**", "/products/save", "/health")
             .permitAll()
             .requestMatchers(
                 "/users/update/**", "/users/register", "/users/delete/**", "/users/**",
                 // Endpoints for products
                 "/products", "/products/update/**", "/products/delete/**", "/delete/all",
+                // Endpoints for draws
+                "/draws", "/draws/**", "/draws/delete/**", "/draws/save",
                 // Endpoint to validate token
                 "/auth/validate")
             .authenticated())
