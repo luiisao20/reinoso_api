@@ -1,0 +1,15 @@
+package com.example.reponse;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthResponse {
+  private String jwt;
+  private String email;
+  private String role;
+  private String message;
+}
