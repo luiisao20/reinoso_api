@@ -38,7 +38,8 @@ public class SecurityConfig {
             .requestMatchers(
                 "/users/update/**", "/users/register", "/users/delete/**", "/users/**",
                 // Endpoints for products
-                "/products", "/products/update/**", "/products/delete/**", "/delete/all",
+                "/products", "/products/update/**", "/products/updateWinner/**", "/products/delete/**",
+                "/delete/all",
                 // Endpoints for draws
                 "/draws", "/draws/**", "/draws/delete/**", "/draws/save",
                 // Endpoint to validate token
@@ -55,7 +56,7 @@ public class SecurityConfig {
     CorsConfiguration config = new CorsConfiguration();
     config.setAllowedOrigins(
         List.of("http://localhost:4200", "https://reinoso-app.vercel.app/"));
-    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
     config.setAllowedHeaders(List.of("*"));
     config.setAllowCredentials(true);
 

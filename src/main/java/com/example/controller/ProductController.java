@@ -13,6 +13,7 @@ import com.example.service.ProductService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +44,12 @@ public class ProductController {
   public Info update(@PathVariable Long id, @RequestBody Info product) {
 
     return productService.update(id, product);
+  }
+
+  @PatchMapping("/updateWinner/{id}")
+  public Info updateWinner(@PathVariable Long id, @RequestBody Boolean winner) {
+    System.out.println(winner);
+    return productService.updateWinnerInfo(id, winner);
   }
 
   @DeleteMapping("/delete/{id}")

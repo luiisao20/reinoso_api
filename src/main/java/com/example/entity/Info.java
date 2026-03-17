@@ -30,6 +30,8 @@ public class Info {
 
   private Boolean accept = false;
 
+  private Boolean winner = false;
+
   @Column(nullable = false)
   private String phone;
 

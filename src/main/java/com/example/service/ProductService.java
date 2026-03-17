@@ -30,6 +30,13 @@ public class ProductService {
     return productRepository.findById(id);
   }
 
+  public Info updateWinnerInfo(Long id, Boolean winner) {
+    Info oldProduct = productRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Product not found"));
+    oldProduct.setWinner(winner);
+    return productRepository.save(oldProduct);
+  }
+
   public Info update(Long id, Info product) {
     Info oldProduct = getById(id)
         .orElseThrow(() -> new RuntimeException("Info not found"));
