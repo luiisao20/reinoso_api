@@ -22,7 +22,7 @@ public class ProductService {
     if (name == null || name.isEmpty()) {
       return productRepository.findAllByOrderByIdDesc();
     } else {
-      return productRepository.findByNameContainingIgnoreCase(name);
+      return productRepository.findByFullNameContaining(name);
     }
   }
 
