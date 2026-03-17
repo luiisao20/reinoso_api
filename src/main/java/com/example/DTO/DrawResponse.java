@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DrawResponse {
+  private Long id;
+
   private OffsetDateTime createdAt;
 
   private List<Info> infos;

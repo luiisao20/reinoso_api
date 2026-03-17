@@ -38,7 +38,7 @@ public class DrawController {
           .map(productId -> productService.getById(productId)
               .orElseThrow(() -> new RuntimeException("Info not found")))
           .toList();
-      drawResponse.add(new DrawResponse(draw.getCreatedAt(), infos));
+      drawResponse.add(new DrawResponse(draw.getId(), draw.getCreatedAt(), infos));
     }
     return drawResponse;
   }
@@ -52,7 +52,7 @@ public class DrawController {
         .map(productId -> productService.getById(productId)
             .orElseThrow(() -> new RuntimeException("Info not found")))
         .toList();
-    return new DrawResponse(draw.getCreatedAt(), infos);
+    return new DrawResponse(draw.getId(), draw.getCreatedAt(), infos);
   }
 
   @PostMapping("/save")
